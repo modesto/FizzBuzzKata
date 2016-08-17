@@ -24,10 +24,17 @@ namespace FizzBuzzKata
         {
             fizzBuzz.Calculate(5).Should().Be("Buzz");
         }
+
+        [Fact]
+        public void return_fizzbuzz_if_is_divisible_by_three_and_five()
+        {
+            fizzBuzz.Calculate(15).Should().Be("FizzBuzz");
+        }
     }
 
     public class FizzBuzz {
         public string Calculate(int value) {
+            if (value%3 == 0 && value%5 == 0) return "FizzBuzz";
             if (value%3 == 0) return "Fizz";
             if (value%5 == 0) return "Buzz";
             return value.ToString();
