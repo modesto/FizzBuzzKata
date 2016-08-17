@@ -9,26 +9,18 @@ namespace FizzBuzzKata
         public FizzBuzzShould() {
             fizzBuzz = new FizzBuzz();
         }
-        [Fact]
-        public void return_the_same_number() {
-            fizzBuzz.Calculate(1).Should().Be("1");
-        }
-
-        [Fact]
-        public void return_fizz_if_is_divisible_by_three() {
-            fizzBuzz.Calculate(3).Should().Be("Fizz");
-        }
-
-        [Fact]
-        public void return_buzz_if_is_divisible_by_five()
-        {
-            fizzBuzz.Calculate(5).Should().Be("Buzz");
-        }
-
-        [Fact]
-        public void return_fizzbuzz_if_is_divisible_by_three_and_five()
-        {
-            fizzBuzz.Calculate(15).Should().Be("FizzBuzz");
+        [Theory]
+        [InlineData(1, "1")]
+        [InlineData(2, "2")]
+        [InlineData(3, "Fizz")]
+        [InlineData(4, "4")]
+        [InlineData(5, "Buzz")]
+        [InlineData(6, "Fizz")]
+        [InlineData(7, "7")]
+        [InlineData(8, "8")]
+        [InlineData(15, "FizzBuzz")]
+        public void return_the_same_number(int value, string expectedResult) {
+            fizzBuzz.Calculate(value).Should().Be(expectedResult);
         }
     }
 
