@@ -18,11 +18,18 @@ namespace FizzBuzzKata
         public void return_fizz_if_is_divisible_by_three() {
             fizzBuzz.Calculate(3).Should().Be("Fizz");
         }
+
+        [Fact]
+        public void return_buzz_if_is_divisible_by_five()
+        {
+            fizzBuzz.Calculate(5).Should().Be("Buzz");
+        }
     }
 
     public class FizzBuzz {
         public string Calculate(int value) {
             if (value%3 == 0) return "Fizz";
+            if (value%5 == 0) return "Buzz";
             return value.ToString();
         }
     }
