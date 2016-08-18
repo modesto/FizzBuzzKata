@@ -25,11 +25,17 @@ namespace FizzBuzzKata
 
     public class FizzBuzz {
         public string Calculate(int value) {
-            if (value.IsDivisibleBy(3) && value.IsDivisibleBy(5)) return "FizzBuzz";
-            if (value.IsDivisibleBy(3)) return "Fizz";
-            if (value.IsDivisibleBy(5)) return "Buzz";
+            if (IsFizzBuzz(value)) return "FizzBuzz";
+            if (IsFizz(value)) return "Fizz";
+            if (IsBuzz(value)) return "Buzz";
             return value.ToString();
         }
+
+        private static bool IsBuzz(int value) => value.IsDivisibleBy(5);
+
+        private static bool IsFizz(int value) => value.IsDivisibleBy(3);
+
+        private static bool IsFizzBuzz(int value) => IsFizz(value) && IsBuzz(value);
     }
 
     public static class IntegerExtensions {
