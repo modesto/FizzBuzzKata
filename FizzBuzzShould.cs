@@ -19,9 +19,8 @@ namespace FizzBuzzKata
         [InlineData(7, "7")]
         [InlineData(8, "8")]
         [InlineData(15, "FizzBuzz")]
-        public void return_the_same_number(int value, string expectedResult) {
+        public void return_the_same_number(int value, string expectedResult) => 
             fizzBuzz.Calculate(value).Should().Be(expectedResult);
-        }
     }
 
     public class FizzBuzz {
@@ -34,8 +33,6 @@ namespace FizzBuzzKata
     }
 
     public static class IntegerExtensions {
-        public static bool IsDivisibleBy(this int value, int divisor) {
-            return value%divisor == 0;
-        }
+        public static bool IsDivisibleBy(this int value, int divisor) => value%divisor == 0;
     }
 }
